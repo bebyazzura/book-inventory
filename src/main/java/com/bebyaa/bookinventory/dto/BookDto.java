@@ -1,21 +1,23 @@
-package com.bebyaa.bookinventory.model;
+package com.bebyaa.bookinventory.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import java.time.LocalDate;
 
-@Entity
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BookDto {
     private Integer id;
-
     private String title;
     private String author;
     private LocalDate publishedDate;
+
+    // Default constructor
+    public BookDto() {}
+
+    // Parameterized constructor
+    public BookDto(Integer id, String title, String author, LocalDate publishedDate) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.publishedDate = publishedDate;
+    }
 
     // Getters and Setters
     public Integer getId() {

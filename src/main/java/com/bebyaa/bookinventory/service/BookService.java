@@ -1,34 +1,12 @@
 package com.bebyaa.bookinventory.service;
 
-import com.bebyaa.bookinventory.model.Book;
-import com.bebyaa.bookinventory.repository.BookRepository;
-import org.springframework.stereotype.Service;
-
+import com.bebyaa.bookinventory.dto.BookDto;
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class BookService {
-
-    private final BookRepository bookRepository;
-
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
-
-    public List<Book> getAllBooks() {
-        return bookRepository.findAll();
-    }
-
-    public Optional<Book> getBookById(Integer id) {
-        return bookRepository.findById(id);
-    }
-
-    public Book saveBook(Book book) {
-        return bookRepository.save(book);
-    }
-
-    public void deleteBook(Integer id) {
-        bookRepository.deleteById(id);
-    }
+public interface BookService {
+    BookDto createBook(BookDto bookDto);
+    BookDto getBookById(Integer id);
+    List<BookDto> getAllBooks();
+    BookDto updateBook(Integer id, BookDto bookDto);
+    void deleteBook(Integer id);
 }
